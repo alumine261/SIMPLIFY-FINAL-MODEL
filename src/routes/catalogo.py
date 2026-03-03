@@ -24,8 +24,8 @@ def recalcular_producto(producto):
 
     # Obtener cotización del dólar actual
     hoy = date.today()
-    cotizacion = CotizacionDolar.query.filter_by(fecha=hoy).first()
-    valor_dolar = cotizacion.promedio if cotizacion else 1395.0
+    cotizacion = CotizacionDolar.query.order_by(CotizacionDolar.id.desc()).first()
+    valor_dolar = cotizacion.promedio if cotizacion else 1400.0
 
     # Calcular costo de materiales con precios actuales
     costo_materiales = 0.0
